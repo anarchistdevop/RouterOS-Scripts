@@ -6,8 +6,7 @@
    This script fetches all FACEBOOK ASN ip ranges from the https://hackertarget.com/as-ip-lookup/ API and creates an Address List called "FaceBook" under  /ip firewall address-list  
    Note : It filters out only ipv4 addresses (I do not have ipv6 enabled on my router yet.)
 
-   The "FaceBook" address list can then be used to block all trafic to FaceBook's servers 
-   This includes whatsapp, instagram and any other Facebook owned domains and IP's 
+   The "FaceBook" address list can then be used to block all trafic to FaceBook's servers, this includes whatsapp, instagram and any other Facebook owned domains and IP's 
 
    The below rule is what I use on my network to block all outgoing Facebook traffic using this list. 
    
