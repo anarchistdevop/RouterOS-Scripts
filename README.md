@@ -3,7 +3,7 @@
 
 ### 1) Facebook IPv4 ASN List Update ( Used to block facebook on Mikrotik RouterOS )
 
-   This script fetches all FACEBOOK ASN ip ranges from the https://hackertarget.com/as-ip-lookup/ API and creates an Address List called "FaceBook" under  /ip firewall address-list  
+   This script fetches all FACEBOOK ASN ip ranges from the API at https://hackertarget.com/as-ip-lookup/ and creates an Address List called "FaceBook" under  /ip firewall address-list  
    Note : It filters out only ipv4 addresses (I do not have ipv6 enabled on my router yet.)
 
    The "FaceBook" address list can then be used to block all trafic to FaceBook's servers, this includes whatsapp, instagram and any other Facebook owned domains and IP's 
