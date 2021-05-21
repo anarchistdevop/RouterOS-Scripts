@@ -1,0 +1,54 @@
+{
+:local data;
+
+:local result1 [/tool fetch url="https://api.hackertarget.com/aslookup/\?q=AS32934" mode=https as-value output=user ];
+:if ($result1->"status" = "finished") do={
+:for i from=0 to=([:len ($result1->"data")] - 1) do={
+:local char [:pick ($result1->"data") $i]
+:if ($char = "\n") do={
+:set $char ","
+}
+:set $data ($data . $char)
+}
+} 
+
+:local result2 [/tool fetch url="https://api.hackertarget.com/aslookup/\?q=AS54115" mode=https as-value output=user ];
+:if ($result2->"status" = "finished") do={
+:for i from=0 to=([:len ($result2->"data")] - 1) do={
+:local char [:pick ($result2->"data") $i]
+:if ($char = "\n") do={
+:set $char ","
+}
+:set $data ($data . $char)
+}
+}
+
+:local result3 [/tool fetch url="https://api.hackertarget.com/aslookup/\?q=AS63293" mode=https as-value output=user ];
+:if ($result3->"status" = "finished") do={
+:for i from=0 to=([:len ($result3->"data")] - 1) do={
+:local char [:pick ($result3->"data") $i]
+:if ($char = "\n") do={
+:set $char ","
+}
+:set $data ($data . $char)
+}
+} 
+
+:local p [:find $data "API"]
+:if ([:type $p]="nil") do={
+/ip firewall address-list remove [/ip firewall address-list find list="FaceBook"]
+:local dataarray [ :toarray ($data)];
+:foreach n in=$dataarray  do={
+:if [:find $n ":"] do={
+:put ($n . " IPv6 Address skipped ");
+} else={
+:if [:find $n "."] do={
+/ip firewall address-list add address=$n comment=$n list=FaceBook;
+}
+}
+}
+} else={
+error "Exiting Script : ASN URL fetch failed"
+}
+
+}
