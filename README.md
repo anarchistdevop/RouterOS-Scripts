@@ -3,7 +3,7 @@
 
 ### 1) Facebook IPv4 ASN List Update
 
-   This script fetches all FACEBOOK ASN ip ranges from https://api.hackertarget.com/aslookup/ and creates an Address List called "FaceBook" under ip -> firewall 
+   This script fetches all FACEBOOK ASN ip ranges from the https://hackertarget.com/as-ip-lookup/ API and creates an Address List called "FaceBook" under ip -> firewall 
    Note : It filters out only ipv4 addresses (I do not have ipv6 enabled on my router yet.)
 
    The "FaceBook" address list can then be used to block all trafic to FaceBook's servers 
