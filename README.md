@@ -15,7 +15,7 @@
 
    The scheduler job for running the script daily is as follows
    
-   >/system scheduler add interval=23h59m59s name="Run Daily" on-event="Facebook IPv4 ASN List Update" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jan/01/2021 start-time=00:00:00
+   >/system scheduler add interval=1d name="Run Daily" on-event="Facebook IPv4 ASN List Update" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jan/01/2021 start-time=00:00:00
 
 
 
